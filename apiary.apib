@@ -7,6 +7,7 @@ Classification api defines interface for taxonomy module
 ## species [/species]
 
 ### Get species [GET]
+Retrieves a list of taxon by *name* or/and *UUID*
 
 >#### Request: /species 
  + Context
@@ -37,7 +38,8 @@ Classification api defines interface for taxonomy module
                     "id" : 4,
                     "type" : "taxon",
                     "attributes" : {  
-                        "id" : "4"
+                        "id" : "4",
+                        "uuid": "uuid": "7b42931d-4725-44d9-9caf-35a323555d9e"
                     } 
                 },
                 {
@@ -45,26 +47,29 @@ Classification api defines interface for taxonomy module
                     "type" : "taxon", 
                     "attributes" : { 
                         "id" : "5", 
+                        "uuid": "uuid": "e0ad864c-096f-11e3-b717-0050568c2f15"
                     }
                 }  
             ] 
         }
         
-## Species /{id} [/collections/v0/{entity}/{id}]
+## species /{id} [/species/{id}]
 
-### Get entity by id [GET]
-Retrieves single record from database by the *entity name* and *id*
+### Get taxon by id [GET]
+Retrieves single record from database by the database *id*
 
-> #### Request: /collections/v0/{entity}/{id}
- + Path parameters:
-    + entity - String [Name of the entity]
-    + id     - int or String [The entity id]
+> #### Request: /species/{id}
+ + Context
+    + locale
+
+ + Path parameters: 
+    + id     - int or String [The taxon id]
      
  + Response 200 (application/json) 
  
         {
             "meta" : {
-                "callEndpoint" : "https://beta-api.dina-web.net/collections/v0/Agent/8",
+                "callEndpoint" : "https://server/classifications/v0/species/8",
                 "contentLicenses" : null,
                 "callDate" : "Jun 12, 2016 at 15.38.54",
                 "statusCode" : 200,
@@ -73,9 +78,7 @@ Retrieves single record from database by the *entity name* and *id*
                 "maintenanceContact" : "admin@dina-system.org", 
                 "message" : null,
                 "resultLanguages" : null,
-                "resultCount" : 1,
-                "previous" : null,
-                "next" : null,
+                "resultCount" : 1, 
                 "orderBy" : null,
                 "supportedLanguages" : [
                     "GB_en",
@@ -83,37 +86,11 @@ Retrieves single record from database by the *entity name* and *id*
                 ]
             },
             "data" : {
-                "type" : "Agent",
+                "type" : "taxon",
                 "id" : 8,
                 "attributes" : {
-                    "dateOfBirth" : null,
-                    "timestampModified" : 1463731167000,
-                    "remarks" : null,
-                    "createdByAgentID" : "1",
-                    "suffix" : null,
-                    "dateOfDeath" : null,
-                    "firstName" : "Johan",
-                    "dateOfDeathPrecision" : 1,
-                    "url" : null,
-                    "email" : null,
-                    "abbreviation" : "",
-                    "id" : "8",
-                    "timestampCreated" : 1463731167000,
-                    "initials" : null,
-                    "agentType" : 1,
-                    "dateOfBirthPrecision" : 1,
-                    "guid" : null,
-                    "middleInitial" : null,
-                    "agentID" : 8,
-                    "lastName" : "Johnsson",
-                    "interests" : null,
-                    "divisionID" : "2",
-                    "modifiedByAgentID" : "1",
-                    "institutionCCID" : null,
-                    "version" : 1,
-                    "dateType" : null,
-                    "jobTitle" : null,
-                    "title" : null
+                    "id" : 8, 
+                    "uuid": "e0addfca-096f-11e3-b717-0050568c2f15"
                 }
             }
         } 
