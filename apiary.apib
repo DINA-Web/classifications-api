@@ -2,7 +2,7 @@ FORMAT: 1A
  
 # classification-api
 
-Classfication api defines interface for taxonomy module
+Classification api defines interface for taxonomy module
 
 ## species [/species]
 
@@ -22,7 +22,7 @@ Classfication api defines interface for taxonomy module
                 "resultLanguages" : locale,
                 "apiVersion" : "0",
                 "callDate" : "Jun 12, 2016 at 16.37.49",    
-                "resultCount" : 3,
+                "resultCount" : 2,
                 "contentLicenses" : null,
                 "callEndpoint" : "https://server/classifications/version/species?name={canonicalName}&uuid={uuid}", 
                 "statusCode" : 200,
@@ -35,123 +35,23 @@ Classfication api defines interface for taxonomy module
             "data" : [
                 {
                     "id" : 4,
-                    "type" : "Collection",
-                    "attributes" : {
-                        "scope" : null,
-                        "catalogFormatNumName" : "CatalogNumberString",
-                        "regNumber" : "1463413212.7899",
-                       "remarks" : null, 
-                        "disciplineID" : "3",
-                        "modifiedByAgentID" : "1",  
-                        "collectionId" : 4, 
-                        "id" : "4",
-                        "collectionType" : null,
-                        "description" : null,
-                        "version" : 4,
-                        "code" : "NHRS",
-                        "createdByAgentID" : null,
-                        "timestampCreated" : 1463410978000,
-                        "estimatedSize" : 0,
-                        "timestampModified" : 1463415170000,
-                        "entityId" : 4,
-                        "collectionName" : "Entomology",
-                        "primaryFocus" : null,
-                        "isEmbeddedCollectingEvent" : true,
-                        "guid" : "bc057da8-8c51-4f99-be5b-c5bc65e763b6",
-                        "institutionType" : null,
-                        "primaryPurpose" : null,
-                        "userGroupScopeId" : 4
+                    "type" : "taxon",
+                    "attributes" : {  
+                        "id" : "4"
                     } 
                 },
                 {
-                    "type" : "Collection",
-                    "id" : 32769,
-                    "attributes" : {
-                        "remarks" : null,
-                        "regNumber" : null,
-                        "institutionNetworkID" : null,
-                        "disciplineID" : "32768",
-                        "catalogFormatNumName" : "CatalogNumberString",  
-                        "collectionId" : 32769,
-                        "version" : 2,
-                        "id" : "32769",
-                        "collectionType" : null,
-                        "description" : null,
-                        "createdByAgentID" : "1",
-                        "timestampCreated" : 1463414729000,
-                        "timestampModified" : 1463414729000,
-                        "estimatedSize" : 0,
-                        "code" : "GEO-MIN",
-                        "isEmbeddedCollectingEvent" : true,
-                        "guid" : "6ff58b39-ec4d-4c3b-ab8c-045e13c4527c",
-                        "institutionType" : null,
-                        "entityId" : 32769,
-                        "primaryFocus" : null,
-                        "collectionName" : "Mineralogy",
-                        "primaryPurpose" : null,
-                        "userGroupScopeId" : 32769
+                    "id" : 5,
+                    "type" : "taxon", 
+                    "attributes" : { 
+                        "id" : "5", 
                     }
-                }
-                {
-                    "type" : "Collection",
-                    "id" : 65537,
-                    "attributes" : {
-                        "code" : "NRM-PZ",
-                        "timestampCreated" : 1463432069000,
-                        "estimatedSize" : 0,
-                        "timestampModified" : 1463432069000,
-                        "createdByAgentID" : "1",
-                        "primaryFocus" : null,
-                        "collectionName" : "Palaeozoology",
-                        "entityId" : 65537,
-                        "institutionType" : null,
-                        "isEmbeddedCollectingEvent" : true,
-                        "guid" : "f7e2bc7b-8be0-4b73-9ce9-aaf7273b45b6",
-                        "userGroupScopeId" : 65537,
-                        "primaryPurpose" : null,
-                        "catalogFormatNumName" : "CatalogNumberString",
-                        "scope" : null,
-                        "regNumber" : "1463432240.1398",
-                        "remarks" : null,
-                        "disciplineID" : "65536", 
-                        "collectionId" : 65537,
-                        "kingdomCoverage" : null,
-                        "webPortalURI" : null,
-                        "isaNumber" : null,
-                        "description" : null,
-                        "id" : "65537",
-                        "collectionType" : null,
-                        "version" : 3
-                    } 
-                }
+                }  
             ] 
         }
         
         
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
+ 
 
 ### Create a New Question [POST]
 
