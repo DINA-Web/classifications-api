@@ -99,48 +99,98 @@ Retrieves single record from database by the database *id*
         
  
 
-### Create a New Question [POST]
+### Create a New taxon [POST]
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+Create a new taxon into database
 
 + Request (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "name": "Cortodera femorata" 
         }
 
 + Response 201 (application/json)
 
     + Headers
 
-            Location: /questions/2
+            Location: https://server/classifications/v0/species/18
 
     + Body
 
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
+                "meta" : {
+                    "callEndpoint" : "https://server/classifications/v0/species/8",
+                    "contentLicenses" : null,
+                    "callDate" : "Jun 12, 2016 at 15.38.54",
+                    "statusCode" : 200,
+                    "apiVersion" : "0",
+                    "sortOrder" : null, 
+                    "maintenanceContact" : "admin@dina-system.org", 
+                    "message" : null,
+                    "resultLanguages" : null,
+                    "resultCount" : 1, 
+                    "orderBy" : null,
+                    "supportedLanguages" : [
+                        "GB_en",
+                        "SE_sv"
+                    ]
+                },
+                "data" : {
+                    "type" : "taxon",
+                    "id" : 18,
+                    "attributes" : {
+                        "id" : 18, 
+                        "uuid": "e0addfca-096f-11e3-b717-0050568c2f15"
                     }
-                ]
+                }
+            } 
+            
+            
+### Edit an taxon [PUT]
+
+Edit taxon
+
++ Request (application/json)
+
+            {
+                "id": "7",
+                "uuid": "e0addfca-096f-11e3-b717-0050568c2f15"
+                "name": "Cortodera femorata"
+            }
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: Location: https://server/classifications/v0/species/7
+
+    + Body
+
+            {
+                "meta":{
+                    "callEndpoint":"https://server/classifications/v0/species/7",
+                    "callDate":"Jun 12, 2016 at 18.06.33",
+                    "apiVersion":"0",
+                    "limit":0,
+                    "resultCount":1,
+                    "sortOrder":null,
+                    "statusCode":201, 
+                    "message":null,
+                    "supportedLanguages":[
+                        "GB_en",
+                        "SE_sv"
+                    ],
+                    "resultLanguages":null,
+                    "contentLicenses":null,
+                    "orderBy":null,
+                    "maintenanceContact":"admin@dina-system.org"
+                },
+                "data":{
+                    "id":7,
+                    "type":"taxon",
+                    "attributes":{
+                        "id":"7",
+                        "uuid": "e0addfca-096f-11e3-b717-0050568c2f15"
+                    }
+                }
             }
