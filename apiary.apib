@@ -1,10 +1,10 @@
 FORMAT: 1A
  
-# classification-api
+# classification-api specification
 
 Classification api defines interface for taxonomy module
 
-## species [/species]
+## classifications /species [/classifications/v0/species]
 
 ### Get species [GET]
 Retrieves a list of taxon by *name* or/and *UUID*
@@ -53,52 +53,7 @@ Retrieves a list of taxon by *name* or/and *UUID*
             ] 
         }
         
-## species /{id} [/species/{id}]
-
-### Get taxon by id [GET]
-Retrieves single record from database by the database *id*
-
-> #### Request: /species/{id}
- + Context
-    + locale
-
- + Path parameters: 
-    + id     - int or String [The taxon id]
-     
- + Response 200 (application/json) 
- 
-        {
-            "meta" : {
-                "callEndpoint" : "https://server/classifications/v0/species/8",
-                "contentLicenses" : null,
-                "callDate" : "Jun 12, 2016 at 15.38.54",
-                "statusCode" : 200,
-                "apiVersion" : "0",
-                "sortOrder" : null, 
-                "maintenanceContact" : "admin@dina-system.org", 
-                "message" : null,
-                "resultLanguages" : null,
-                "resultCount" : 1, 
-                "orderBy" : null,
-                "supportedLanguages" : [
-                    "GB_en",
-                    "SE_sv"
-                ]
-            },
-            "data" : {
-                "type" : "taxon",
-                "id" : 8,
-                "attributes" : {
-                    "id" : 8, 
-                    "uuid": "e0addfca-096f-11e3-b717-0050568c2f15"
-                }
-            }
-        } 
         
-        
-        
- 
-
 ### Create a New taxon [POST]
 
 Create a new taxon into database
@@ -194,3 +149,48 @@ Edit taxon
                     }
                 }
             }
+        
+        
+        
+        
+## classifications /species/{id} [/species/{id}]
+
+### Get taxon by id [GET]
+Retrieves single record from database by the database *id*
+
+> #### Request: /species/{id}
+ + Context
+    + locale
+
+ + Path parameters: 
+    + id     - int or String [The taxon id]
+     
+ + Response 200 (application/json) 
+ 
+        {
+            "meta" : {
+                "callEndpoint" : "https://server/classifications/v0/species/8",
+                "contentLicenses" : null,
+                "callDate" : "Jun 12, 2016 at 15.38.54",
+                "statusCode" : 200,
+                "apiVersion" : "0",
+                "sortOrder" : null, 
+                "maintenanceContact" : "admin@dina-system.org", 
+                "message" : null,
+                "resultLanguages" : null,
+                "resultCount" : 1, 
+                "orderBy" : null,
+                "supportedLanguages" : [
+                    "GB_en",
+                    "SE_sv"
+                ]
+            },
+            "data" : {
+                "type" : "taxon",
+                "id" : 8,
+                "attributes" : {
+                    "id" : 8, 
+                    "uuid": "e0addfca-096f-11e3-b717-0050568c2f15"
+                }
+            }
+        }
