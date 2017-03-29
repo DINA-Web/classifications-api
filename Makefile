@@ -3,7 +3,7 @@
 APIB = blueprint.apib
 PWD = $(shell pwd)
 
-all: init up docs report
+all: init up dox report
 
 init:
 	# need to do this bec the dredd validator complains on .apib format with tabs
