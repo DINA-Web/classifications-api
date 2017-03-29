@@ -1,0 +1,196 @@
+FORMAT: 1A
+ 
+# classification-api specification
+
+Classification api defines interface for taxonomy module
+
+## classifications /species [/classifications/v0/species]
+
+### Get taxon [GET]
+Retrieves a list of taxon by *name* or/and *UUID*
+
+>#### Request: /classifications/v0/species 
+ + Context
+    + locale
+ + Query parameters
+    + UUID
+    + canonicalName 
+     
+ + Response 200 (application/json) 
+ 
+        {
+            "meta" : {
+                "resultLanguages" : locale,
+                "apiVersion" : "0",
+                "callDate" : "Jun 12, 2016 at 16.37.49",    
+                "resultCount" : 2,
+                "contentLicenses" : null,
+                "callEndpoint" : "https://server/classifications/version/species?name={canonicalName}&uuid={uuid}", 
+                "statusCode" : 200,
+                "maintenanceContact" : "admin@dina-system.org",
+                "supportedLanguages" : [
+                    "GB_en",
+                    "SE_sv"
+                ]
+            },
+            "data" : [
+                {
+                    "id" : 4,
+                    "type" : "taxon",
+                    "attributes" : {  
+                        "id" : "4",
+                        "uuid": "uuid": "7b42931d-4725-44d9-9caf-35a323555d9e"
+                    } 
+                },
+                {
+                    "id" : 5,
+                    "type" : "taxon", 
+                    "attributes" : { 
+                        "id" : "5", 
+                        "uuid": "uuid": "e0ad864c-096f-11e3-b717-0050568c2f15"
+                    }
+                }  
+            ] 
+        }
+        
+        
+### Create a New taxon [POST]
+
+Create a new taxon into database
+
++ Request (application/json)
+
+        {
+            "name": "Cortodera femorata" 
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: https://server/classifications/v0/species/18
+
+    + Body
+
+            {
+                "meta" : {
+                    "callEndpoint" : "https://server/classifications/v0/species/8",
+                    "contentLicenses" : null,
+                    "callDate" : "Jun 12, 2016 at 15.38.54",
+                    "statusCode" : 200,
+                    "apiVersion" : "0",
+                    "sortOrder" : null, 
+                    "maintenanceContact" : "admin@dina-system.org", 
+                    "message" : null,
+                    "resultLanguages" : null,
+                    "resultCount" : 1, 
+                    "orderBy" : null,
+                    "supportedLanguages" : [
+                        "GB_en",
+                        "SE_sv"
+                    ]
+                },
+                "data" : {
+                    "type" : "taxon",
+                    "id" : 18,
+                    "attributes" : {
+                        "id" : 18, 
+                        "uuid": "e0addfca-096f-11e3-b717-0050568c2f15"
+                    }
+                }
+            } 
+            
+            
+### Edit an taxon [PUT]
+
+Edit taxon
+
++ Request (application/json)
+
+            {
+                "id": "7",
+                "uuid": "e0addfca-096f-11e3-b717-0050568c2f15"
+                "name": "Cortodera femorata"
+            }
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: Location: https://server/classifications/v0/species/7
+
+    + Body
+
+            {
+                "meta":{
+                    "callEndpoint":"https://server/classifications/v0/species/7",
+                    "callDate":"Jun 12, 2016 at 18.06.33",
+                    "apiVersion":"0",
+                    "limit":0,
+                    "resultCount":1,
+                    "sortOrder":null,
+                    "statusCode":201, 
+                    "message":null,
+                    "supportedLanguages":[
+                        "GB_en",
+                        "SE_sv"
+                    ],
+                    "resultLanguages":null,
+                    "contentLicenses":null,
+                    "orderBy":null,
+                    "maintenanceContact":"admin@dina-system.org"
+                },
+                "data":{
+                    "id":7,
+                    "type":"taxon",
+                    "attributes":{
+                        "id":"7",
+                        "uuid": "e0addfca-096f-11e3-b717-0050568c2f15"
+                    }
+                }
+            }
+        
+        
+        
+        
+## classifications /species/{id} [/classifications/v0/species/{id}]
+
+### Get taxon by id [GET]
+Retrieves single record from database by the database *id*
+
+> #### Request: /classifications/v0/species/{id}
+ + Context
+    + locale
+
+ + Path parameters: 
+    + id     - int or String [The taxon id]
+     
+ + Response 200 (application/json) 
+ 
+        {
+            "meta" : {
+                "callEndpoint" : "https://server/classifications/v0/species/8",
+                "contentLicenses" : null,
+                "callDate" : "Jun 12, 2016 at 15.38.54",
+                "statusCode" : 200,
+                "apiVersion" : "0",
+                "sortOrder" : null, 
+                "maintenanceContact" : "admin@dina-system.org", 
+                "message" : null,
+                "resultLanguages" : null,
+                "resultCount" : 1, 
+                "orderBy" : null,
+                "supportedLanguages" : [
+                    "GB_en",
+                    "SE_sv"
+                ]
+            },
+            "data" : {
+                "type" : "taxon",
+                "id" : 8,
+                "attributes" : {
+                    "id" : 8, 
+                    "uuid": "e0addfca-096f-11e3-b717-0050568c2f15"
+                }
+            }
+        }
