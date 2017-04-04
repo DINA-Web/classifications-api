@@ -1,0 +1,35 @@
+PWD := $(shell pwd)
+MVN := maven:3.3.9-jdk-8
+
+
+all: clean init build up
+
+buildapi:
+	docker build -t dina/classifications-api:v0.1 .
+
+clean:
+	docker-compose down
+
+up:
+	docker-compose up
+
+.PHONY: dox build
+
+build:
+	@echo "Running maven build, takes about 5 min"
+	docker build -t dina/classifications-builder builder
+	docker run --name build dina/classifications-builder
+	docker cp build:target/classifications-swarm.jar .
+	docker rm build
+
+	@echo "Building Docker image"
+	docker build -t dina/classification-api:v0.1 .
+
+dox:
+	@echo "Rendering API Blueprint into HTLM documentation using aglio"
+	docker pull humangeo/aglio
+	docker run -ti --rm -v $(PWD)/:/docs humangeo/aglio \
+		aglio -i apiary.apib -o classification-api-reference.html
+	sudo chown $(USR):$(USR) classification-api-reference.html
+	firefox classification-api-reference.html
+	
