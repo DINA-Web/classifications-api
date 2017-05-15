@@ -1,0 +1,69 @@
+FORMAT: 1A
+ 
+# classification-api specification
+
+Classification api defines interface for taxonomy module
+
+## classifications /species [/classifications/v0/species]
+
+### Get taxon by scientific name [GET]
+Retrieves a list of taxon by *scientificName* 
+
+>#### Request: /classifications/v01/search
+ + Context
+    + locale
+ + Query parameters
+    + scientificName 
+    + exact
+    + max
+     
+ + Response 200 (application/json) 
+ 
+        {
+            "meta" : {
+                "resultLanguages" : locale,
+                "apiVersion" : "0",
+                "callDate" : "Jun 12, 2016 at 16.37.49",    
+                "resultCount" : 1,
+                "contentLicenses" : null,
+                "callEndpoint" : "https://server/classifications/api/v0.1/search?scientificName=Proxenus&exact=false&max=10", 
+                "statusCode" : 200,
+                "maintenanceContact" : "admin@dina-system.org",
+                "supportedLanguages" : [
+                    "GB_en",
+                    "SE_sv"
+                ]
+            },
+            "data" : [{
+                "type": "SPECIES",
+                "id": "1082958",
+                "attributes": {
+                    "id": "1082958",
+                    "lsid": "1082958",
+                    "scientificName": "Proxenus PÃ©ringuey, 1907"
+                } 
+            }, {
+                "type": "GENUS",
+                "id": "3256116",
+                "attributes": {
+                    "id": "3256116",
+                    "lsid": "3256116",
+                    "scientificName": "Proxenus"
+                }
+            }, {
+                "type": "FAMILY",
+                "id": "1082958",
+                "attributes": {
+                    "lsid": "1082958",
+                    "scientificName": "Proxenus PÃ©ringuey, 1907"
+                }
+            }, {
+                "type": "FAMILY",
+                "id": "3256116",
+                "attributes": {
+                    "id": "3256116",
+                    "lsid": "3256116",
+                    "scientificName": "Proxenus Herrich-SchÃ¤ffer, 1850"
+                }
+            }]
+        }
